@@ -38,6 +38,7 @@ type Payload struct {
 /* writeError will will send the error a 200 status response */
 func writeError(w http.ResponseWriter, e error) bool {
   if e != nil {
+    fmt.Println(e)
     w.Write([]byte("Error: " + e.Error()))
   }
   return e != nil
