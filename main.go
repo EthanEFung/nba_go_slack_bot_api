@@ -176,5 +176,5 @@ func main() {
   )
   router.HandleFunc("/", handleChallenge).Methods("POST")
   router.HandleFunc("/games", handleGames).Methods("POST")
-	log.Fatal(http.ListenAndServeTLS(":8080", "server.crt", "server.key", router))
+	log.Fatal(http.ListenAndServe(":8080", router))
 }
