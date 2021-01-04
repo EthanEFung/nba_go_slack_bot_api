@@ -1,0 +1,6 @@
+# ignore binaries if you can
+go_nba
+
+# ignore generated ssl server certs
+server.crt
+server.key
