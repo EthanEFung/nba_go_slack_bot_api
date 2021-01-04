@@ -89,6 +89,7 @@ func handleChallenge(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleGames(w http.ResponseWriter, r *http.Request) {
+  fmt.Println("Handling Games")
   defer r.Body.Close()
   err := r.ParseForm()
   if writeError(w, err) {
@@ -141,6 +142,7 @@ func main() {
     mux.CORSMethodMiddleware(router),
     // verify slack secret
     func(next http.Handler) http.Handler {
+      fmt.Println("Authorizing")
       return http.HandlerFunc(func (w http.ResponseWriter, r *http.Request) {
         key := []byte(os.Getenv("SLACK_SS"))
         buf, err := ioutil.ReadAll(r.Body)
